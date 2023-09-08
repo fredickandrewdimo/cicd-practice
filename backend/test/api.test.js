@@ -16,4 +16,15 @@ describe("API Tests", () => {
         done();
       });
   });
+
+  it('should return "Hello, user!" when GET /user', (done) => {
+    chai
+      .request(server) // Use the server instance for testing
+      .get("/user")
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res.body).to.equal("Hello, user!");
+        done();
+      });
+  });
 });
